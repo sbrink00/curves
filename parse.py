@@ -27,6 +27,18 @@ def executeCommands():
       p = [int(y) for y in lines[x + 1].split(" ")]
       add_edge(edge, p[0], p[1], p[2], p[3], p[4], p[5])
       x += 1
+    elif lines[x] == "circle":
+      p = [int(y) for y in lines[x + 1].split(" ")]
+      add_circle(edge, p[0], p[1], p[2], p[3])
+      x += 1
+    elif lines[x] == "hermite":
+      p = [int(y) for y in lines[x + 1].split(" ")]
+      add_hermite(edge, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7])
+      x += 1
+    elif lines[x] == "bezier":
+      p = [int(y) for y in lines[x + 1].split(" ")]
+      add_bezier(edge, p[0], p[1], p[2], p[3], p[4], p[5], p[6], p[7])
+      x += 1
     elif lines[x] == "ident":
       ident(transform)
     elif lines[x] == "scale":
@@ -60,3 +72,4 @@ def executeCommands():
       print("File name: " + lines[x + 1])
       x += 1
     x += 1
+    print(x, len(lines))

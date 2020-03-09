@@ -1,5 +1,3 @@
-
-Learn more or give us feedback
 from matrix import *
 import math
 
