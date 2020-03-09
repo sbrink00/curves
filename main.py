@@ -8,8 +8,12 @@ screen = new_screen()
 color = [ 0, 255, 0 ]
 edges = []
 transform = new_matrix()
+t = 0.0
+for i in range(10000): t += .0001
+print(t)
 genLines()
 executeCommands()
+
 # print_matrix( make_translate(3, 4, 5) )
 # print
 # print_matrix( make_scale(3, 4, 5) )

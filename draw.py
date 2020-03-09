@@ -49,8 +49,9 @@ def add_bezier(matrix, x0, y0, x1, y1, x2, y2, x3, y3):
     x = dx + t * (cx + t * (bx + t * ax))
     y = dy + t * (cy + t * (by + t * ay))
     add_point(matrix, x, y)
-    if t != 0 and t != 1: add_point(matrix, x, y)
+    if t != 0 and t < 1: add_point(matrix, x, y)
     t += TSTEP
+  del matrix[-1]
 
 def add_hermite(matrix, x0, y0, x1, y1, rx0, ry0, rx1, ry1):
   ax = (2 * x0 + rx0 + rx1 - 2 * x1)
@@ -66,8 +67,9 @@ def add_hermite(matrix, x0, y0, x1, y1, rx0, ry0, rx1, ry1):
     x = dx + t * (cx + t * (bx + t * ax))
     y = dy + t * (cy + t * (by + t * ay))
     add_point(matrix, x, y)
-    if t != 0 and t != 1: add_point(matrix, x, y)
+    if t != 0 and t < 1: add_point(matrix, x, y)
     t += TSTEP
+  del matrix[-1]
 
 def draw_line(x0, y0, x1, y1, screen, color):
   x1,y1,x0,y0 = int(x1),int(y1),int(x0),int(y0)
@@ -128,6 +130,7 @@ def draw_line(x0, y0, x1, y1, screen, color):
       y -= 1
       d -= 2 * b
     return
+
 
 def findABM(x0, y0, x1, y1):
   undefined = False
